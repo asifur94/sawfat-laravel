@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('lead' , LeadController::class);
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice-index');
     Route::get('/invoices/{id}', [InvoiceController::class, 'show'])->name('invoice-show');
+    Route::get('/product-purchase', [InvoiceController::class, 'purchase'])->name('product-purchase');
     Route::resource('product' , ProductController::class);
 });
 

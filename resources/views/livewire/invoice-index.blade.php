@@ -2,21 +2,25 @@
     <table class="w-full table-auto">
 <tr>
     <th class="border px-4 py-2 text-left">Id</th>
-    <th class="border px-4 py-2 text-left">User</th>
-    <th class="border px-4 py-2 text-left">Due Date</th>
-    <th class="border px-4 py-2 text-left">Amount</th>
-    <th class="border px-4 py-2 text-left">Paid</th>
-    <th class="border px-4 py-2 text-left">Due</th>
+    <th class="border px-4 py-2 text-left">Name</th>
+    <th class="border px-4 py-2 text-left">Phone</th>
+    <th class="border px-4 py-2 text-left">Address</th>
+    <th class="border px-4 py-2 text-left">products</th>
     <th class="border px-4 py-2 text-left">Actions</th>
 </tr>
 @foreach ($invoices as $invoice )
 <tr>
     <td class="border px-4 py-2 ">{{ $invoice->id }}</td>
-    <td class="border px-4 py-2 ">{{ $invoice->user->name }}</td>
-    <td class="border px-4 py-2 ">{{date('F j,Y', strtotime($invoice->due_date))  }}</td>
-    <td class="border px-4 py-2 ">${{ $invoice->amount()['total'] }}</td>
-    <td class="border px-4 py-2 ">${{ $invoice->amount()['paid'] }}</td>
-    <td class="border px-4 py-2 ">${{ $invoice->amount()['due'] }}</td>
+    <td class="border px-4 py-2 ">{{ $invoice->name }}</td>
+    <td class="border px-4 py-2 ">{{  $invoice->phone }}</td>
+    <td class="border px-4 py-2 ">{{ $invoice->address }}</td>
+    <td class="border px-4 py-2 ">
+        <div class="flex gap-2 flex-wrap">
+            @foreach($invoice->items as $item)
+                <p class="bg-green-500 text-xs text-white py-1 px-2">{{$item->product->name}}</p>
+            @endforeach
+        </div>
+    </td>
 
     <td class="border px-4 py-2 text-center">
         <div class="flex items-center justify-center">

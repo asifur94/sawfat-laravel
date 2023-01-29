@@ -8,4 +8,4 @@
     <span class="pl-2">Loading . . .</span>
 </div>
 
-<button wire:loading.remove type="submit" class="lms-btn">Submit</button>
+<button wire:loading.remove type="submit" class="lms-btn bg-green-500 py-2 px-4 rounded text-white mt-4">Submit</button>
