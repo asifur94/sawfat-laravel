@@ -21,7 +21,7 @@ class ProductCreate extends Component
         return view('livewire.product-create');
     }
     protected $rules = [
-        'name' => 'required|unique:product,name',
+        'name' => 'required|unique:products,name',
         'description' => 'required',
         'price' => 'required',
         'product_image'=> 'required',

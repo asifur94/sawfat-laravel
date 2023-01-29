@@ -44,4 +44,7 @@ class InvoiceController extends Controller
             'invoice' => Invoice::findOrFail($id),
         ]);
     }
+    public function purchase(){
+        return view('product.purchase');
+    }
 }
