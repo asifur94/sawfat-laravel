@@ -9,9 +9,12 @@ class ProductEdit extends Component
 {
     public $product_id;
     public $name;
+    public $product_name;
+    public $product_image;
     public $description;
     public $price;
-    public $image = [];
+    public $slug;
+    public $time;
 
 
 
@@ -27,19 +30,42 @@ class ProductEdit extends Component
         'time' => 'required'
     ];
 
-    public function mount()
-    {
-        $product = Product::where('id', $this->product_id)->first();
+    // public function mount()
+    // {
+    //     $product = Product::where('id', $this->product_id)->first();
 
-        $this->name = $product->name;
-        $this->description = $product->description;
-        $this->image = $product->image;
+    //     $this->name = $product->name;
+    //     $this->description = $product->description;
+    //     $this->image = $product->image;
+    //     $this->price = $product->price;
+
+    // }
+
+
+    public function mount(){
+
+        $product = Product::findOrFail($this->product_id);
+
+        $this->product_name = $product->name;
+        $this->product_image = $product->image;
         $this->price = $product->price;
+        $this->description = $product->description;
+
+        }
+
+
+    public function productEdit(){
+        $product = Product::findOrFail($this->product_id);
+        $this->validate();
+
+        // $product = Product::where('id', $this->product_id)->first();
+        $product->name = $this->product_name;
+        $product->description = $this->description;
+        $product->image = $this->product_image;
+        $product->price = $this->price;
+        $product->save();
 
     }
-
-
-
     public function productUpdate()
     {
         $this->validate();

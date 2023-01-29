@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductCreate extends Component
 {
+    public $name;
+    public $product_image;
+    public $description;
+    public $price;
+    public $slug;
     use WithFileUploads;
     public function render()
     {
@@ -18,26 +23,35 @@ class ProductCreate extends Component
     protected $rules = [
         'name' => 'required|unique:product,name',
         'description' => 'required',
-
-        'image' => 'required',
         'price' => 'required',
+        'product_image'=> 'required',
 
     ];
     public function formSubmit()
     {
         $this->validate();
-        $product = Product::create([
+        // $product = Product::create([
 
-            'name' => $this->name,
-            'slug' => str_replace(' ', '-', $this->name),
-            'description' => $this->description,
-            'image' => $this->image,
-            'price' => $this->price,
-            'user_id' => Auth::user()->id
-        ]);
+        //     'name' => $this->name,
+        //     'slug' => str_replace(' ', '-', $this->name),
+        //     'description' => $this->description,
+        //     'image' => $this->image,
+        //     'price' => $this->price,
+        //     'user_id' => Auth::user()->id
+        // ]);
+        $product = new Product();
+        $product->name = $this->name;
+        $product->slug = str_replace(' ', '-', $this->name);
+        $product->description = $this->description;
+        $product->image = $this->product_image;
+        $product->price = $this->price;
+        $product->user_id = Auth::user()->id;
+        $product->save();
 
+        $product_id = $product->id;
 
-
+        flash()->addSuccess('Product created successfully');
         return redirect()->route('product.index');
     }
+
 }

@@ -11,12 +11,12 @@ class ProductView extends Component
     public function render()
     {
         $product = Product::where('id', $this->product_id)->first();
-
-
         return view('livewire.product-view', [
-            'products' => $product,
-
+            'product' => $product,
         ]);
+
+
+
     }
 
 
