@@ -3,11 +3,15 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 class RoleIndex extends Component
 {
     public function render()
     {
-        return view('livewire.role-index');
+        $roles = Role::where('name', '!=', 'Super Admin')->get();
+        return view('livewire.role-index', [
+            'roles' => $roles
+        ]);
     }
 }

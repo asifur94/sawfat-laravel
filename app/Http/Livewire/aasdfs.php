@@ -4,30 +4,35 @@ namespace App\Http\Livewire;
 
 use App\Models\Product;
 use Livewire\Component;
-use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
-class ProductCreate extends Component
+class CourseCreate extends Component
 {
-    use WithFileUploads;
-    public function render()
-    {
-        return view('livewire.product-create');
-    }
+    public $name;
+    public $description;
+    public $price;
+    public $image = [];
+
+
+
+
     protected $rules = [
         'name' => 'required|unique:product,name',
         'description' => 'required',
-
         'image' => 'required',
         'price' => 'required',
 
     ];
+
+    public function render()
+    {
+        return view('livewire.product-create');
+    }
+
     public function formSubmit()
     {
         $this->validate();
         $product = Product::create([
-
             'name' => $this->name,
             'slug' => str_replace(' ', '-', $this->name),
             'description' => $this->description,
@@ -41,3 +46,4 @@ class ProductCreate extends Component
         return redirect()->route('product.index');
     }
 }
+

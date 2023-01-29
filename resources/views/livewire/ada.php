@@ -1,4 +1,3 @@
-
 <form wire:submit.prevent="formSubmit">
     <div class="mb-6">
         @include('components.form-field', [
@@ -19,17 +18,6 @@
         'required' => 'required',
         ])
     </div>
-    <div class="mb-6">
-        <div class="mb-6">
-            @include('components.form-field', [
-            'name' => 'image',
-            'label' => 'Image',
-            'type' => 'image',
-            'placeholder' => 'image Url',
-
-            ])
-        </div>
-    </div>
 
     <div class="mb-6">
         @include('components.form-field', [
@@ -41,6 +29,17 @@
         ])
     </div>
 
+        <div class="mb-6">
+            <div class="mb-6">
+                @include('components.form-field', [
+                'name' => 'image',
+                'label' => 'Image',
+                'type' => 'image',
+                'placeholder' => 'Image Url',
+                'required' => 'required',
+                ])
+            </div>
+        </div>
 
     @include('components.wire-loading-btn')
 </form>

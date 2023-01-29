@@ -16,22 +16,20 @@ class DatabaseSeeder extends Seeder
 {
 
 
-
-    private function create_user_with_role($type, $name, $email){
+    private function create_user_with_role($type, $name, $email) {
         $role = Role::create([
-            'name' =>$type
+            'name' => $type
         ]);
+
         $user = User::create([
-        'name' => $name,
-        'email' => $email,
-        'password' => bcrypt('password') ,
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt('password')
         ]);
 
-        if($type == 'Super Admin'){
-
-        $role->givePermissionTo(Permission::all());
-        }
-        elseif($type == 'Leads'){
+        if($type == 'Super Admin') {
+            $role->givePermissionTo(Permission::all());
+        } elseif($type == 'Leads') {
             $role->givePermissionTo('lead-management');
         }
 
@@ -39,7 +37,6 @@ class DatabaseSeeder extends Seeder
 
         return $user;
     }
-
 
 
 
@@ -64,10 +61,11 @@ class DatabaseSeeder extends Seeder
         }
 
 
-    $this->create_user_with_role(type: 'Super Admin' , name: 'Super Admin' , email: 'super-admin@lms.com');
-    $this->create_user_with_role(type: 'Communication' , name: 'Communication Team' , email: 'Communication@lms.com');
+        $this->create_user_with_role('Super Admin', 'Super Admin', 'super-admin@lms.test');
+        $this->create_user_with_role('Communication', 'Communication Team', 'communication@lms.test');
+        $logistic = $this->create_user_with_role('logistic', 'logistic', 'logistic@lms.test');
+        $this->create_user_with_role('Leads', 'Leads', 'leads@lms.test');
 
-    $this->create_user_with_role(type: 'Leads' , name: 'Leads' , email: 'leads@lms.com');
 
 
 
@@ -77,14 +75,15 @@ class DatabaseSeeder extends Seeder
         Lead::factory()->count(100)->create();
 
 
+        $product = Product::create([
+            'name' => 'Offer of 1 liter',
+            'slug' => 'Offer of 1 liter',
+            'description' => '3 cans totaling 3 liters',
+            'image' => 'https://laravel.com/img/logomark.min.svg',
+            'user_id' => $logistic->id,
+            'price' => 156
 
-        // $product = Product::create([
-        //     'name' => 'Olive',
-        //     'slug' => 'olive',
-        //     'description' => 'The olive, botanical name Olea europaea, meaning European olive in Latin, is a species of small tree or shrub in the family Oleaceae, found traditionally ...',
-        //     'image' => 'https://laravel.com/img/logomark.min.svg',
-        //     'price' => 500
-        // ]);
+        ]);
 
 
 

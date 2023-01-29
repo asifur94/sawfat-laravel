@@ -14,10 +14,11 @@ class ProductView extends Component
 
 
         return view('livewire.product-view', [
-            'product' => $product,
+            'products' => $product,
 
         ]);
     }
+
 
 
 }
