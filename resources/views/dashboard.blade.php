@@ -6,9 +6,6 @@
     </x-slot>
 
 
-
-
-
         <div id="home">
                 <div class="lg:flex justify-center items-center mb-6">
                   <p class="text-2xl font-semibold mt-2 mb-2 lg:mb-0">Hello, {{ Auth::user()->name }}. Welcome back!</p>
@@ -23,7 +20,7 @@
                               </svg>
 
                           <div >
-                            <p class="font-semibold  text-3xl">31</p>
+                            <p class="font-semibold  text-3xl">{{$totalProducts}}</p>
                             <p>Total Products</p>
                           </div>
                         </div>
@@ -39,7 +36,7 @@
                       </svg>
 
                       <div >
-                        <p class="font-semibold  text-3xl">31</p>
+                        <p class="font-semibold  text-3xl">{{$totalOrder}}</p>
                         <p>Total Orders</p>
                       </div>
                     </div>
@@ -64,11 +61,17 @@
                     </tr>
 
                     <tr>
-                        <td class="border bg-gray-700  text-center px-2 py-2 ">1</td>
-                        <td class="border bg-gray-700  px-4 py-2 ">Jhon</td>
-                        <td class="border bg-gray-700  px-4 py-2 ">837485956</td>
-                        <td class="border bg-gray-700  px-4 py-2 ">Jeddah</td>
-                        <td class="border bg-gray-700  px-4 py-2 ">Olive</td>
+                        <td class="border bg-gray-700  text-center px-2 py-2 ">{{$lastInvoice->id}}</td>
+                        <td class="border bg-gray-700  px-4 py-2 ">{{$lastInvoice->name}}</td>
+                        <td class="border bg-gray-700  px-4 py-2 ">{{$lastInvoice->phone}}</td>
+                        <td class="border bg-gray-700  px-4 py-2 ">{{$lastInvoice->address}}</td>
+                        <td class="border bg-gray-700  px-4 py-2 "><div class="flex gap-2 flex-wrap">
+                                @foreach($lastInvoice->items as $item)
+                                    <p class="bg-green-500 text-xs text-white py-1 px-2">{{$item->product->name}}</p>
+                                @endforeach
+                            </div>
+                        </td>
+
                     </tr>
                         </table>
                     </div>
