@@ -18,15 +18,14 @@ class ProductController extends Controller
         ]);
     }
     public function order(Request $request){
-        $request->validate(
-            [
-                'name'=>'required',
-                'phone_number'=>'required',
-                'address' =>'required',
-                'selectedProducts'=>'required',
-                'quantities'=>'required',
-            ]
-        );
+//        $request->validate(
+//            [
+//                'name'=>'required',
+//                'phone_number'=>'required',
+//                'address' =>'required',
+//                'selectedProducts'=>'required',
+//            ]
+//        );
         $invoice = new Invoice();
         $invoice->name = $request->name;
         $invoice->phone = $request->phone_number;
@@ -34,17 +33,16 @@ class ProductController extends Controller
         $invoice->save();
 
 
-        foreach (json_decode($request->selectedProducts) as $id) {
-            $product = Product::findOrFail($id);
+        foreach ($request->selectedProducts as $s_product) {
+            $product = Product::findOrFail($s_product['id']);
             $invoiceItem = new InvoiceItem();
             $invoiceItem->product_id = $product->id;
             $invoiceItem->price = $product->price;
-            $invoiceItem->quantity = json_decode($request->quantities,true)[$id];
+            $invoiceItem->quantity = $s_product['quantity'];
             $invoiceItem->invoice_id = $invoice->id;
             $invoiceItem->save();
         }
-      return  response()->json([
-            'message' => 'Product order successfully',
-        ]);
+      return response()->json(['message' =>'Product Order Successfully']);
     }
 }
+
