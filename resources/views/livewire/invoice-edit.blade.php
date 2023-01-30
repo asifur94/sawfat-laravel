@@ -1,6 +1,6 @@
 <div>
     <h2>Information</h2>
-    <p>Invoice to: {{$invoice->user->name}}</p>
+    <p>Invoice to: {{$invoice->name}}</p>
 
     <table class="table-auto w-full">
         <tr>

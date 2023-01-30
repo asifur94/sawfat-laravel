@@ -65,7 +65,7 @@ class ProductPurchase extends Component
          flash()->addSuccess('Product Added Successfully');
 
         $this->name='';
-        $this->email='';
+        // $this->email='';
         $this->phone_number='';
         $this->address='';
         $this->selectedProducts = [];
