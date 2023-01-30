@@ -56,7 +56,7 @@ class ProductPurchase extends Component
              $invoiceItem = new InvoiceItem();
              $product = $this->products->find($id);
              $invoiceItem->product_id = $product->id;
-             $invoiceItem->amount = $product->price * $this->quantities[$id];
+             $invoiceItem->price = $product->price;
              $invoiceItem->quantity = $this->quantities[$id];
              $invoiceItem->invoice_id = $invoice->id;
              $invoiceItem->save();
