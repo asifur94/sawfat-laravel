@@ -58,7 +58,8 @@
                     <td class="border px-4 py-2">
                         <input type="number" min="1"  wire:model="quantities.{{$product->id}}">
                     </td>
-                    <td class="border px-4 py-2">{{ number_format($product->price,2) }} tk</td>
+                   <td class="border px-4 py-2">{{ number_format($product->price,2) }} tk</td>
+
                     <td class="border px-4 py-2">{{number_format($product->price * $quantities[$product->id],2)}} tk</td>
                 </tr>
             @endforeach

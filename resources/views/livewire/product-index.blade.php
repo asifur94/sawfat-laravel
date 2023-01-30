@@ -1,6 +1,5 @@
 
 <div>
-
     <table class="w-full table-auto">
         <tr>
             <th class="border px-4 py-2 text-left">Id </th>
@@ -8,6 +7,7 @@
             <th class="border px-4 py-2 text-left">Image </th>
             <th class="border px-4 py-2 text-left">Description </th>
             <th class="border px-4 py-2 text-left">Price</th>
+            <th class="border px-4 py-2 text-left">Discount</th>
             <th class="border px-4 py-2">Created at</th>
             <th class="border px-4 py-2">Action</th>
         </tr>
@@ -21,6 +21,7 @@
                 </td>
                <td class="border px-4 py-2">{{ $product->description }}</td>
                 <td class="border px-4 py-2">{{ $product->price }}</td>
+                <td class="border px-4 py-2">{{ $product->DiscountPrice }}</td>
                 <td class="border px-4 py-2 text-center">{{ date('F,j,Y',strtotime($product->created_at)) }}</td>
                 <td class="border px-4 py-2 text-center">
                    <div class="flex items-center justify-center">

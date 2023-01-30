@@ -13,6 +13,7 @@ class ProductEdit extends Component
     public $product_image;
     public $description;
     public $price;
+    public $DiscountPrice;
     public $slug;
     public $time;
 
@@ -63,6 +64,7 @@ class ProductEdit extends Component
         $product->description = $this->description;
         $product->image = $this->product_image;
         $product->price = $this->price;
+        $product->price = $this->DiscountPrice;
         $product->save();
 
     }

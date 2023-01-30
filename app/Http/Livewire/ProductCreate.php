@@ -12,8 +12,9 @@ class ProductCreate extends Component
 {
     public $name;
     public $product_image;
-    public $description;
+   public $description;
     public $price;
+    public $DiscountPrice;
     public $slug;
     use WithFileUploads;
     public function render()
@@ -44,7 +45,8 @@ class ProductCreate extends Component
         $product->slug = str_replace(' ', '-', $this->name);
         $product->description = $this->description;
         $product->image = $this->product_image;
-        $product->price = $this->price;
+       $product->price = $this->price;
+       $product->DiscountPrice = $this->DiscountPrice;
         $product->user_id = Auth::user()->id;
         $product->save();
 

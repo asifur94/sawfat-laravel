@@ -34,12 +34,22 @@
             'name' => 'price',
             'label' => 'Price',
             'type' => 'number',
+
             'placeholder' => 'Add price',
             'required' => 'required',
         ])
     </div>
 
+    <div class="mb-6">
+        @include('components.form-field', [
+            'name' => 'DiscountPrice',
+            'label' => 'DiscountPrice',
+            'type' => 'number',
 
+            'placeholder' => 'Discount Price',
+
+        ])
+    </div>
 
 
 

@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('description');
             $table->string('image')->nullable();
+
             $table->unsignedBigInteger('user_id');
-            $table->float('price')->default(0);
+            $table->float('DiscountPrice')->default(0);
+            $table->string('price')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
