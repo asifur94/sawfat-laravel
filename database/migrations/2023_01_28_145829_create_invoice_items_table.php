@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('invoice_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->float('amount');
+            $table->float('price');
             $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('invoice_id');
             $table->timestamps();

@@ -38,7 +38,7 @@ class ProductController extends Controller
             $product = Product::findOrFail($id);
             $invoiceItem = new InvoiceItem();
             $invoiceItem->product_id = $product->id;
-            $invoiceItem->amount = $product->price * json_decode($request->quantities,true)[$id];
+            $invoiceItem->price = $product->price;
             $invoiceItem->quantity = json_decode($request->quantities,true)[$id];
             $invoiceItem->invoice_id = $invoice->id;
             $invoiceItem->save();
