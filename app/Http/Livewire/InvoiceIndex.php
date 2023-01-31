@@ -14,4 +14,12 @@ class InvoiceIndex extends Component
             'invoices' => $invoices
         ]);
     }
+
+    public function invoiceDelete($id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $invoice->delete();
+
+        flash()->addSuccess('Invoice deleted successfully!');
+    }
 }

@@ -31,16 +31,7 @@ class ProductEdit extends Component
         'time' => 'required'
     ];
 
-    // public function mount()
-    // {
-    //     $product = Product::where('id', $this->product_id)->first();
 
-    //     $this->name = $product->name;
-    //     $this->description = $product->description;
-    //     $this->image = $product->image;
-    //     $this->price = $product->price;
-
-    // }
 
 
     public function mount(){
@@ -50,6 +41,7 @@ class ProductEdit extends Component
         $this->product_name = $product->name;
         $this->product_image = $product->image;
         $this->price = $product->price;
+        $this->DiscountPrice = $product->DiscountPrice;
         $this->description = $product->description;
 
         }
@@ -59,33 +51,16 @@ class ProductEdit extends Component
         $product = Product::findOrFail($this->product_id);
         $this->validate();
 
-        // $product = Product::where('id', $this->product_id)->first();
+        $product = Product::where('id', $this->product_id)->first();
         $product->name = $this->product_name;
         $product->description = $this->description;
         $product->image = $this->product_image;
         $product->price = $this->price;
-        $product->price = $this->DiscountPrice;
+        $product->DiscountPrice = $this->DiscountPrice;
         $product->save();
-
-    }
-    public function productUpdate()
-    {
-        $this->validate();
-
-
-
-
-        // $product->update([
-        //     'name' => $this->name,
-        //     'description' => $this->description,
-        //     'price' => $this->price,
-        //     'user_id' => auth()->user()->id
-        // ]);
-
-
-
         flash()->addSuccess('Product updated successfully');
 
         return redirect()->route('product.index');
     }
+
 }
