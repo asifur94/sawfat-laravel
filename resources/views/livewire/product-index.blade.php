@@ -14,15 +14,15 @@
 
         @foreach ($products as $product)
             <tr >
-                <td class="border px-4 py-2">{{ $product->id }}</td>
-                <td class="border px-4 py-2">{{ $product->name }}</td>
-                <td class="border text-center px-4 py-2">
+                <td class="border font-semibold px-4 py-2">{{ $product->id }}</td>
+                <td class="border font-semibold px-4 py-2">{{ $product->name }}</td>
+                <td class="border font-semibold text-center px-4 py-2">
                     <img class="w-32 mx-auto" src="{{$product->image}}" alt="">
                 </td>
-               <td class="border px-4 py-2">{{ $product->description }}</td>
-                <td class="border px-4 py-2">{{ $product->price }}</td>
-                <td class="border px-4 py-2">{{ $product->DiscountPrice }}</td>
-                <td class="border px-4 py-2 text-center">{{ date('F,j,Y',strtotime($product->created_at)) }}</td>
+               <td class="border font-semibold px-4 py-2">{{ $product->description }}</td>
+                <td class="border font-semibold px-4 py-2">{{ $product->price }}</td>
+                <td class="border px-4  text-gray-600 cursor-auto ml-2 py-2">{{ $product->DiscountPrice }}</td>
+                <td class="border font-semibold px-4 py-2 text-center">{{ date('F,j,Y',strtotime($product->created_at)) }}</td>
                 <td class="border px-4 py-2 text-center">
                    <div class="flex items-center justify-center">
                     <a href="{{ route('product.edit',$product->id) }}">

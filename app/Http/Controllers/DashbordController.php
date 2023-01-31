@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class DashbordController extends Controller
 {
+    public $id;
     public function index(){
         return view('dashboard',[
             'totalProducts' => Product::all()->count(),
