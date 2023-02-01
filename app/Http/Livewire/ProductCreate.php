@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class ProductCreate extends Component
 {
     public $name;
+    public $namEe;
     public $product_image;
    public $description;
     public $price;
@@ -41,7 +42,8 @@ class ProductCreate extends Component
         //     'user_id' => Auth::user()->id
         // ]);
         $product = new Product();
-        $product->name = $this->name;
+       $product->name = $this->name;
+       $product->namEe = $this->namEe;
         $product->slug = str_replace(' ', '-', $this->name);
         $product->description = $this->description;
         $product->image = $this->product_image;

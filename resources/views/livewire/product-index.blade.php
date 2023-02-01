@@ -4,6 +4,7 @@
         <tr>
             <th class="border px-4 py-2 text-left">Id </th>
             <th class="border px-4 py-2 text-left">Name </th>
+            <th class="border px-4 py-2 text-left">IMG Top </th>
             <th class="border px-4 py-2 text-left">Image </th>
             <th class="border px-4 py-2 text-left">Description </th>
             <th class="border px-4 py-2 text-left">Price</th>
@@ -16,6 +17,7 @@
             <tr >
                 <td class="border font-semibold px-4 py-2">{{ $product->id }}</td>
                 <td class="border font-semibold px-4 py-2">{{ $product->name }}</td>
+                <td class="border font-semibold px-4 py-2">{{ $product->namEe }}</td>
                 <td class="border font-semibold text-center px-4 py-2">
                     <img class="w-32 mx-auto" src="{{$product->image}}" alt="">
                 </td>

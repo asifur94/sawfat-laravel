@@ -76,7 +76,8 @@ class DatabaseSeeder extends Seeder
 
 
         $product = Product::create([
-            'name' => 'Offer of 1 liter',
+           'name' => 'Offer of 1 liter',
+           'namEe' => ' 1 liter',
             'slug' => 'Offer of 1 liter',
             'description' => '3 cans totaling 3 liters',
             'image' => 'https://laravel.com/img/logomark.min.svg',
