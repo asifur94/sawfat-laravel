@@ -4,7 +4,8 @@
     <th class="border px-4 py-2 text-left">Id</th>
     <th class="border px-4 py-2 text-left">Name</th>
     <th class="border px-4 py-2 text-left">Phone</th>
-    <th class="border px-4 py-2 text-left">Address</th>
+   <th class="border px-4 py-2 text-left">Address</th>
+   <th class="border px-4 py-2 text-left">Street Address</th>
     <th class="border px-4 py-2 text-left">products</th>
     <th class="border px-4 py-2 text-left">Actions</th>
 </tr>
@@ -14,6 +15,7 @@
     <td class="border px-4 py-2 ">{{ $invoice->name }}</td>
     <td class="border px-4 py-2 ">{{  $invoice->phone }}</td>
     <td class="border px-4 py-2 ">{{ $invoice->address }}</td>
+    <td class="border px-4 py-2 ">{{ $invoice->Staddress }}</td>
     <td class="border px-4 py-2 ">
         <div class="flex gap-2 flex-wrap">
             @foreach($invoice->items as $item)

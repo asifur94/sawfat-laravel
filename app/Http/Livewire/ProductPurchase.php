@@ -11,7 +11,8 @@ class ProductPurchase extends Component
 {
     public $name;
     public $phone_number;
-    public $address;
+   public $address;
+   public $Staddress;
     public $selectedProducts = [];
     public $quantities = [];
     public $products;
@@ -20,6 +21,7 @@ class ProductPurchase extends Component
         'name' => 'required',
         'phone_number' => 'required',
         'address' => 'required',
+        'Staddress' => 'required',
         'selectedProducts' => 'required',
         'quantities' => 'required',
     ];
@@ -49,6 +51,7 @@ class ProductPurchase extends Component
          $invoice->name = $this->name;
          $invoice->phone = $this->phone_number;
          $invoice->address = $this->address;
+         $invoice->Staddress = $this->Staddress;
          $invoice->save();
 
 
@@ -62,12 +65,13 @@ class ProductPurchase extends Component
              $invoiceItem->save();
          }
 
-         flash()->addSuccess('Product Added Successfully');
+         flash()->addSuccess('Product Purchase Successfully');
 
         $this->name='';
         // $this->email='';
         $this->phone_number='';
         $this->address='';
+        $this->Staddress='';
         $this->selectedProducts = [];
         $this->quantities = [];
         $this->products='';

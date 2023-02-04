@@ -30,6 +30,7 @@ class ProductController extends Controller
         $invoice->name = $request->name;
         $invoice->phone = $request->phone_number;
         $invoice->address = $request->address;
+        $invoice->Staddress = $request->Staddress;
         $invoice->save();
 
 

@@ -55,8 +55,9 @@
                         <th class="border bg-gray-700 px-2 py-2 text-center">Id</th>
                         <th class="border bg-gray-700  px-4 py-2 text-center">Name</th>
                         <th class="border bg-gray-700  px-4 py-2 text-center">Phone</th>
-                        <th class="border bg-gray-700  px-4 py-2 text-center">Address</th>
-                        <th class="border bg-gray-700  px-4 py-2 text-center">products</th>
+                        <th class="border bg-gray-700  px-4 py-2 text-center">City</th>
+                        <th class="border bg-gray-700  px-4 py-2 text-center">Street Address</th>
+                       <th class="border bg-gray-700  px-4 py-2 text-center">products</th>
 
                     </tr>
 
@@ -65,6 +66,7 @@
                         <td class="border bg-gray-700  px-4 py-2 ">{{$lastInvoice->name}}</td>
                         <td class="border bg-gray-700  px-4 py-2 ">{{$lastInvoice->phone}}</td>
                         <td class="border bg-gray-700  px-4 py-2 ">{{$lastInvoice->address}}</td>
+                        <td class="border bg-gray-700  px-4 py-2 ">{{$lastInvoice->Staddress}}</td>
                         <td class="border bg-gray-700  px-4 py-2 "><div class="flex gap-2 flex-wrap">
                                 @foreach($lastInvoice->items as $item)
                                     <p class="bg-green-500 text-xs text-white py-1 px-2">{{$item->product->name}}</p>

@@ -20,7 +20,7 @@
     </div>
 
     <div class="mb-6">
-        @include('components.form-field', [
+       @include('components.form-field', [
             'name' => 'address',
             'label' => 'Address',
             'type' => 'text',
@@ -28,6 +28,15 @@
             'required' => 'required',
         ])
     </div>
+    <div class="mb-6">
+        @include('components.form-field', [
+             'name' => 'Staddress',
+             'label' => 'Street Address',
+             'type' => 'text',
+             'placeholder' => 'Enter your street address',
+             'required' => 'required',
+         ])
+     </div>
   <div class="flex flex-wrap gap-4 items-center">
       @foreach ($products as $product)
           <div class="flex items-center">
